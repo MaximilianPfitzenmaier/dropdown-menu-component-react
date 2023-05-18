@@ -1,0 +1,17 @@
+footer {
+  position: fixed; // change later to normal behavior
+  bottom: 0; // change later to normal behavior
+  height: var(--footer-height);
+  background-color: var(--color-background);
+  display: inline-flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-foreground);
+
+  span {
+    margin-left: 2rem;
+    display: inline-flex;
+  }
+}

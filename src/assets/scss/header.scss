@@ -1,0 +1,36 @@
+header {
+  display: flex;
+  flex-direction: row;
+  height: var(--nav-height);
+  border-bottom: 2px solid var(--color-border);
+  background-color: var(--color-background);
+
+  .brand {
+    margin-right: 2rem;
+    a {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .nav {
+    &__main {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      align-items: center;
+
+      .menu-item {
+        display: flex;
+        height: 100%;
+        padding: 0 20px;
+        font-size: var(--body-font-size);
+
+        &.active {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
