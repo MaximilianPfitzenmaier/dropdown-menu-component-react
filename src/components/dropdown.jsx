@@ -88,6 +88,6 @@ export default Dropdown;
 
 Dropdown.propTypes = {
   onChange: PropTypes.func,
-  options: PropTypes.object,
+  options: PropTypes.array,
   placeHolder: PropTypes.string,
 };

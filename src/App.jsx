@@ -2,7 +2,7 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 // import Components
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Sampling from './pages/Sampling';
@@ -27,7 +27,7 @@ const App = () => {
               <Route path="/sampling" element={<Sampling />} />
             </Routes>
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </div>
     </>

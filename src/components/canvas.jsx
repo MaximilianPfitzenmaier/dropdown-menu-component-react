@@ -26,7 +26,7 @@ const Canvas = ( {id, canvasRef, array} ) => {
 export default Canvas;
 
 Canvas.propTypes = {
-  id: PropTypes.number,
-  canvasRef: PropTypes.string,
+  id: PropTypes.string,
+  canvasRef: PropTypes.object,
   array: PropTypes.array,
 };
