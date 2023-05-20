@@ -1,9 +1,9 @@
 // just drawing no return
 // neu schreiben
 export const drawFunction = (canvasID, array) => {
-  let centeredZero = true;
-  let line = true;
-  let canvasArray = array;
+  const centeredZero = true;
+  const line = true;
+  const canvasArray = array;
   let canvas;
   let ctx;
   if (canvasID.current) {
@@ -63,7 +63,7 @@ export const drawFunction = (canvasID, array) => {
 
     ctx.beginPath();
     ctx.lineWidth = 2;
-    let grad = ctx.createLinearGradient(i, 0, i, yposition);
+    const grad = ctx.createLinearGradient(i, 0, i, yposition);
     grad.addColorStop(0, 'hsl(176, 72%, 71%)');
     grad.addColorStop(1, 'hsl(251, 53%, 45%)');
     ctx.strokeStyle = grad;
@@ -91,7 +91,7 @@ export const drawFunction = (canvasID, array) => {
       // draw circles
       ctx.beginPath();
       ctx.arc(i, yposition, 3, 0, 2 * Math.PI);
-      let centered = centeredZero ? canvasArray.length / 2 : 1;
+      const centered = centeredZero ? canvasArray.length / 2 : 1;
       // Buffer circles transparent
       if (count == 0 || count == canvasArray.length || count == canvasArray.length - 1) {
         ctx.beginPath();
@@ -138,11 +138,11 @@ export const drawTest = (canvasID, funcArray) => {
   canvas.height = canvasHeight;
 
   // Skalierungsfaktoren berechnen
-  const xMin = -canvasWidth / 2;
-  const xMax = canvasWidth / 2;
-  const xRange = xMax - xMin;
+  // const xMin = -canvasWidth / 2;
+  // const xMax = canvasWidth / 2;
+  // const xRange = xMax - xMin;
   const yRange = Math.max(...funcArray) - Math.min(...funcArray);
-  const xScale = canvasWidth / xRange;
+  // const xScale = canvasWidth / xRange;
   const yScale = canvasHeight / yRange;
 
   // Zeichnen der Achsen
@@ -158,7 +158,7 @@ export const drawTest = (canvasID, funcArray) => {
   ctx.beginPath();
   ctx.moveTo(0, canvasHeight / 2 - (funcArray[0] - Math.min(...funcArray)) * yScale);
   for (let i = 1; i < canvasWidth; i++) {
-    const x = xMin + i / xScale;
+    // const x = xMin + i / xScale;
     const y = funcArray[i] - Math.min(...funcArray);
     ctx.lineTo(i, canvasHeight / 2 - y * yScale);
   }
