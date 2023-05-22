@@ -1,24 +1,19 @@
+/* eslint linebreak-style: ["error", "windows"]*/
+
 // import react
 import {Link} from 'react-router-dom';
 import {useLocation} from 'react-router-dom';
-
-// import images
-import Logo from '../assets/images/logo.jpg';
 
 // import style
 import '../assets/scss/header.scss';
 
 const navLinks = [
   {name: 'Home', path: '/'},
-  {
-    name: 'Sampling',
-    path: '/sampling',
-  },
 ];
 
 /**
  * Header Component
- * @return {header} The sum of the two numbers.
+ * @return {Header}
  */
 const Header = () => {
   const location = useLocation();
@@ -28,7 +23,7 @@ const Header = () => {
       <header>
         <div className="brand">
           <Link href="/">
-            <img src={Logo} className="test" height={60} width={60} alt="" />
+            {/* <img src={Logo} className="test" height={60} width={60} alt="" /> */}
           </Link>
         </div>
         <nav className="nav">

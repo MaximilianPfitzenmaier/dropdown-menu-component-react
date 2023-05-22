@@ -1,19 +1,20 @@
+/* eslint linebreak-style: ["error", "windows"]*/
 // import React
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 // import Components
-// import Footer from './components/Footer';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
+// import pages
 import Home from './pages/Home';
-import Sampling from './pages/Sampling';
 
 // import styling
 import './assets/scss/default.scss';
 
-
 /**
  * The App
- * @return {App} The sum of the two numbers.
+ * @return {App}
  */
 const App = () => {
   return (
@@ -24,10 +25,9 @@ const App = () => {
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/sampling" element={<Sampling />} />
             </Routes>
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </Router>
       </div>
     </>

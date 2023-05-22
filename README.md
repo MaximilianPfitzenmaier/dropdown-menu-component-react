@@ -1,8 +1,12 @@
-# React Dropdown menu template 
+# React Dropdown Menu Template
+
+The React Dropdown Menu Component Template provides an easy-to-use and customizable dropdown menu solution for React applications. This template offers a fully functional dropdown menu as a reusable component that can be integrated into any React project with minimal effort. It is designed to enhance user experience by providing a sleek and intuitive menu interface.
+
+The dropdown menu template supports various features, including multi-selection, search-interaction, responsive design, and customizable styles. Developers can easily modify the appearance, behavior, and content of the dropdown menu to suit their project requirements. The template provides a robust and flexible foundation, allowing developers to save time and effort by leveraging pre-built functionality.
 
 ## Live Demo:
 
-https://fourier-sampling.vercel.app/
+https://dropdown-menu-component-react.vercel.app/
 
 ## :electric_plug: Preparation
 
@@ -33,3 +37,6 @@ Using the latest LTS version of node.js should work just fine: https://nodejs.or
 ### Done!
 
 You should now be able to reach your site.
+
+Keywords: React dropdown menu, Customizable menu component, User-friendly dropdown menu, Reusable dropdown template, React menu interface, Dropdown menu solution, Easy integration with React
+https://github.com/MaximilianPfitzenmaier/

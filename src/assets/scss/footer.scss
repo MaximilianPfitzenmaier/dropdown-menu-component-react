@@ -10,8 +10,32 @@ footer {
   align-items: center;
   color: var(--color-foreground);
 
-  span {
+  .name {
     margin-left: 2rem;
-    display: inline-flex;
+  }
+  
+  .socials {
+    margin-right: 2rem;
+    transition: all .3s;
+    
+    span a{
+      display: flex;
+      color: var(--color-foreground);
+    }
+    
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--color-foreground);
+      margin-left: 1rem;
+    }
+
+    &:hover svg{
+      fill: var(--color-links);
+    }
+    &:hover span a{
+      color: var(--color-links);
+      text-decoration: none;
+    }
   }
 }

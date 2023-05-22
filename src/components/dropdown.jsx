@@ -1,5 +1,11 @@
-import {useEffect, useState, useRef} from 'react';
+/* eslint linebreak-style: ["error", "windows"]*/
+// https://medium.com/tinyso/how-to-create-a-dropdown-select-component-in-react-bf85df53e206
+// import react stuff
+import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
+
+// import styles
+import '../assets/scss/dropdown.scss';
 
 const Icon = () => {
   return (
@@ -10,13 +16,34 @@ const Icon = () => {
   );
 };
 
-const Dropdown = ( {placeHolder, options, onChange} ) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(null);
+const CloseIcon = () => {
+  return (
+    <svg height="20" width="20" viewBox="0 0 20 20">
+      {/* eslint-disable-next-line max-len */}
+      <path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path>
+    </svg>
+  );
+};
 
+/**
+ * Dropdown Component
+ * @return {Dropdown}
+ */
+const Dropdown = ({placeHolder, options, isMulti, isSearchable, onChange}) => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null);
+  const [searchValue, setSearchValue] = useState('');
+  const searchRef = useRef();
   const inputRef = useRef();
 
-  useEffect( () => {
+  useEffect(() => {
+    setSearchValue('');
+    if (showMenu && searchRef.current) {
+      searchRef.current.focus();
+    }
+  }, [showMenu]);
+
+  useEffect(() => {
     const handler = (e) => {
       if (inputRef.current && !inputRef.current.contains(e.target)) {
         setShowMenu(false);
@@ -28,25 +55,65 @@ const Dropdown = ( {placeHolder, options, onChange} ) => {
       window.removeEventListener('click', handler);
     };
   });
-
   const handleInputClick = (e) => {
     setShowMenu(!showMenu);
   };
 
   const getDisplay = () => {
-    if (selectedValue) {
-      return selectedValue.label;
+    if (!selectedValue || selectedValue.length === 0) {
+      return placeHolder;
     }
-    return placeHolder;
+    if (isMulti) {
+      return (
+        <div className="dropdown--tags">
+          {selectedValue.map((option) => (
+            <div key={option.value} className="dropdown--tag-item">
+              {option.label}
+              <span
+                onClick={(e) => onTagRemove(e, option)}
+                className="dropdown--tag-close"
+              >
+                <CloseIcon />
+              </span>
+            </div>
+          ))}
+        </div>
+      );
+    }
+    return selectedValue.label;
+  };
+
+  const removeOption = (option) => {
+    return selectedValue.filter((o) => o.value !== option.value);
+  };
+
+  const onTagRemove = (e, option) => {
+    e.stopPropagation();
+    const newValue = removeOption(option);
+    setSelectedValue(newValue);
+    onChange(newValue);
   };
 
   const onItemClick = (option) => {
-    setSelectedValue(option);
-    const array = option.value;
-    onChange(array);
+    let newValue;
+    if (isMulti) {
+      if (selectedValue.findIndex((o) => o.value === option.value) >= 0) {
+        newValue = removeOption(option);
+      } else {
+        newValue = [...selectedValue, option];
+      }
+    } else {
+      newValue = option;
+    }
+    setSelectedValue(newValue);
+    onChange(newValue);
   };
 
   const isSelected = (option) => {
+    if (isMulti) {
+      return selectedValue.filter((o) => o.value === option.value).length > 0;
+    }
+
     if (!selectedValue) {
       return false;
     }
@@ -54,40 +121,60 @@ const Dropdown = ( {placeHolder, options, onChange} ) => {
     return selectedValue.value === option.value;
   };
 
+  const onSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const getOptions = () => {
+    if (!searchValue) {
+      return options;
+    }
+
+    return options.filter(
+        (option) =>
+          option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0,
+    );
+  };
+
   return (
-    <>
-      <div className="dropdown--container">
-        <div ref={inputRef} onClick={handleInputClick} className="dropdown--input">
-          <div className="dropdown--selected-value">{getDisplay()}</div>
-          <div className="dropdown--tools">
-            <div className="dropdown--tool">
-              <Icon />
-            </div>
+    <div className="dropdown--container">
+      <div ref={inputRef} onClick={handleInputClick} className={`dropdown--input ${showMenu ? 'open' : ''}`}>
+        <div className="dropdown--selected-value">{getDisplay()}</div>
+        <div className="dropdown--tools">
+          <div className="dropdown--tool">
+            <Icon />
           </div>
         </div>
-        { showMenu && (
-          <div className="dropdown--menu">
-            {
-              options.map((option) => (
-                <div
-                  onClick={() => onItemClick(option) }
-                  key={option.value}
-                  className={`dropdown--item ${isSelected(option) && 'selected'}`}
-                >
-                  {option.label}
-                </div>
-              ))}
-          </div>
-        )}
       </div>
-    </>
+      {showMenu && (
+        <div className="dropdown--menu">
+          {isSearchable && (
+            <div className="search-box">
+              <input onChange={onSearch} value={searchValue} ref={searchRef} />
+            </div>
+          )}
+          {getOptions().map((option) => (
+            <div
+              onClick={() => onItemClick(option)}
+              key={option.value}
+              className={`dropdown--item ${isSelected(option) && 'selected'}`}
+            >
+              {option.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
 export default Dropdown;
 
+
 Dropdown.propTypes = {
-  onChange: PropTypes.func,
-  options: PropTypes.array,
   placeHolder: PropTypes.string,
+  options: PropTypes.array,
+  isMulti: PropTypes.bool,
+  isSearchable: PropTypes.bool,
+  onChange: PropTypes.func,
 };

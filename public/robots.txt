@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# change localhost to domainname
-Sitemap: http://localhost:5173/sitemap.xml

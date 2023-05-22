@@ -1,19 +1,66 @@
-// import images
+/* eslint linebreak-style: ["error", "windows"]*/
 
+// import Components
+import Dropdown from '../components/dropdown';
+
+// import data
+import {dropdownArray1, dropdownArray2} from '../assets/data/data';
 
 // import styles
-import '../assets/scss/home.scss';
+import '../assets/scss/dropdown.scss';
+
+const dropDownHandler = (option) => {
+  // do fancy stuff
+  console.log(option);
+};
 
 /**
  * Home Component
- * @return {Home} The sum of the two numbers.
+ * @return {Home}
  */
 const Home = () => {
   return (
     <>
-      <div className="container">
-        <h1>Welcome To My App</h1>
-        <p>This is going to be the coolest app in the world!</p>
+      <div className='row'>
+        <div className="container mt-3">
+          <Dropdown
+          // isSearchable
+          // isMulti
+            placeHolder="Select..."
+            options={dropdownArray1}
+            onChange={(value) => dropDownHandler(value)}
+          />
+        </div>
+
+        <div className="container mt-3">
+          <Dropdown
+            isSearchable
+            // isMulti
+            placeHolder="Select..."
+            options={dropdownArray2}
+            onChange={(value) => dropDownHandler(value)}
+          />
+        </div>
+
+        <div className='container mt-3'>
+          <Dropdown
+          // isSearchable
+            isMulti
+            placeHolder="Select..."
+            options={dropdownArray1}
+            onChange={(value) => dropDownHandler(value)}
+          />
+        </div>
+
+        <div className='container mt-3'>
+          <Dropdown
+            isSearchable
+            isMulti
+            placeHolder="Select..."
+            options={dropdownArray2}
+            onChange={(value) => dropDownHandler(value)}
+          />
+        </div>
       </div>
     </>
   );
