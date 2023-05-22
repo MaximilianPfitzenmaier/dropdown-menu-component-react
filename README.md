@@ -1,4 +1,4 @@
-# 2D Fourier-Transformation and Sampling
+# React Dropdown menu template 
 
 ## Live Demo:
 
@@ -18,17 +18,17 @@ Using the latest LTS version of node.js should work just fine: https://nodejs.or
 ### Clone the repository
 
 1. Open a terminal and move to your folder.
-2. Being there, clone this repository with `git@github.com:MaximilianPfitzenmaier/fourier-sampling.git fourier-sampling`.
+2. Being there, clone this repository with `git clone https://github.com/MaximilianPfitzenmaier/dropdown-menu-component-react.git`.
 
 ### Build assets
 
-1. Move to your app folder with `cd fourier-sampling/`
+1. Move to your app folder with `cd dropdown-menu-component-react/`
 2. Install all npm dependendies by typing `npm install` or just `npm i`
 3. Run `npm run build` to build all assets (e.g. styles)
 
 ### Run React app
 
-1. Run `npm run dev` to start developer mode and visit the page at `localhost:3000`
+1. Run `npm run dev` to start developer mode and visit the page at `localhost`
 
 ### Done!
 
