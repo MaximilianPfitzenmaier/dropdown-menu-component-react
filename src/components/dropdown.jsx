@@ -1,5 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"]*/
-// https://medium.com/tinyso/how-to-create-a-dropdown-select-component-in-react-bf85df53e206
 // import react stuff
 import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';

@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"]*/
 // import React
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 

@@ -1,5 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"]*/
-
 import '../assets/scss/footer.scss';
 
 /**

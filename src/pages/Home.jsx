@@ -1,5 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"]*/
-
 // import Components
 import Dropdown from '../components/dropdown';
 
