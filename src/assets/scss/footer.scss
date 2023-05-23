@@ -13,16 +13,16 @@ footer {
   .name {
     margin-left: 2rem;
   }
-  
+
   .socials {
     margin-right: 2rem;
-    transition: all .3s;
-    
-    span a{
+    transition: all 0.3s;
+
+    span a {
       display: flex;
       color: var(--color-foreground);
     }
-    
+
     svg {
       width: 24px;
       height: 24px;
@@ -30,10 +30,10 @@ footer {
       margin-left: 1rem;
     }
 
-    &:hover svg{
+    &:hover svg {
       fill: var(--color-links);
     }
-    &:hover span a{
+    &:hover span a {
       color: var(--color-links);
       text-decoration: none;
     }

@@ -4,7 +4,7 @@ $screen-md-min: 768px;
 // Medium devices
 @mixin md {
   @media (min-width: #{$screen-md-min}) {
-      @content;
+    @content;
   }
 }
 
@@ -30,7 +30,7 @@ $screen-md-min: 768px;
   --color-links-hover: hsl(var(--hs-links) 45%);
   --color-border: hsl(277, 85%, 38%);
   --color-invalid: hsl(356, 100%, 71%);
-  --color-font: 	hsl(210, 11%, 15%);
+  --color-font: hsl(210, 11%, 15%);
   --gradient-background: radial-gradient(circle, rgba(152, 11, 238, 1) 0%, rgba(118, 15, 181, 1) 35%, rgba(58, 13, 85, 1) 100%);
   --font-body: -apple-system, 'Segoe UI', Helvetica Neue, Helvetica, Roboto, Arial, sans-serif, system-ui, 'Apple Color Emoji', 'Segoe UI Emoji';
   --font-display: roboto-regular, var(--font-body);
@@ -159,8 +159,7 @@ h6 {
 
   @include md {
     flex-direction: row;
-}
-
+  }
 }
 
 .mt-3 {
