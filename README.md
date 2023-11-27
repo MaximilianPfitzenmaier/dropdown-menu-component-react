@@ -38,5 +38,6 @@ Using the latest LTS version of node.js should work just fine: https://nodejs.or
 
 You should now be able to reach your site.
 
-Keywords: React dropdown menu, Customizable menu component, User-friendly dropdown menu, Reusable dropdown template, React menu interface, Dropdown menu solution, Easy integration with React
-https://github.com/MaximilianPfitzenmaier/
+## License
+Published under [MIT License](./LICENSE).
+
