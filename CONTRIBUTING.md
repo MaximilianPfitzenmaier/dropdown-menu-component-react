@@ -1,17 +1,21 @@
 # Contributing Guide
-We welcome contributions from the community! 
+
+We welcome contributions from the community!
 If you would like to participate in the project, here are some things to consider.
 
 ## Code of Conduct
+
 Please read and follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## Submission Guidelines
 
-###  Submitting an Issue
-Before starting work on a pull request, please check if there is an open issue that your contribution relates to. 
+### Submitting an Issue
+
+Before starting work on a pull request, please check if there is an open issue that your contribution relates to.
 If there is no such issue, please create a new issue to describe your contribution and start the discussion.
 
 ### Submitting a Pull Request (PR)
+
 When you are ready to submit your contribution, please create a pull request.
 Here are some things to consider:
 
@@ -33,8 +37,10 @@ A maintainer will review your pull request and may ask you to make additional ch
 or provide more information before it is merged.
 
 ## License
-By submitting a contribution, you agree to have your contribution published under the project's license. 
+
+By submitting a contribution, you agree to have your contribution published under the project's license.
 Please make sure you have the right to submit your contribution under this license.
 
 ## Acknowledgements
+
 Thank you for wanting to contribute to the project! We appreciate the effort and time you are putting into your contribution.

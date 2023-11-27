@@ -1,5 +1,5 @@
 module.exports = {
-  env: {browser: true, es2020: true},
+  env: {browser: true, es2020: true, node: true},
   extends: [
     'prettier',
     'google',
@@ -14,5 +14,6 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
     'max-len': ['error', {'code': 120, 'tabWidth': 2}],
+    'linebreak-style': ['error', 'windows'],
   },
 };
