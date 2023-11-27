@@ -39,5 +39,5 @@ Using the latest LTS version of node.js should work just fine: https://nodejs.or
 You should now be able to reach your site.
 
 ## License
-Published under [MIT License](./LICENSE).
 
+Published under [MIT License](./LICENSE).
